@@ -74,6 +74,14 @@ router.post("/", (req, res) => {
     return res.sendStatus(400);
   }
 
+  for (const film of films) {
+    if (film.title===body.title && film.director===body.director) {
+     
+        return res.sendStatus(409);
+    
+    }
+  }
+
   const { title, director,duration,budget,description,imageUrl  } = body as NewFilm;
 
   const nextId =
